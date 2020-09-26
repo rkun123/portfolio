@@ -9,7 +9,7 @@
     </g>
     </svg>
     <div class="description">
-      <p>I am a fxxki'n boy</p>
+      <p>Thank you for visiting.</p>
     </div>
   </div>
 </template>
