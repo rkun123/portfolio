@@ -8,7 +8,9 @@
       <path d="m205.86 77.153h-13.512v-26.062q0-8.2707-0.86554-10.675-0.86553-2.4524-2.837-3.7987-1.9234-1.3464-4.6643-1.3464-3.5102 0-6.2992 1.9234-2.789 1.9234-3.8468 5.097-1.0098 3.1736-1.0098 11.733v23.129h-13.512v-51.067h12.55v7.5013q6.6839-8.6554 16.83-8.6554 4.4719 0 8.1745 1.6349 3.7026 1.5868 5.5779 4.0873 1.9234 2.5004 2.6447 5.6741 0.76936 3.1736 0.76936 9.0881z" style="font-feature-settings:normal;font-variant-caps:normal;font-variant-ligatures:normal;font-variant-numeric:normal"/>
     </g>
     </svg>
-    <div class="description">I am a fxxki'n boy</div>
+    <div class="description">
+      <p>I am a fxxki'n boy</p>
+    </div>
   </div>
 </template>
 
@@ -36,7 +38,7 @@ export default {
         complete: () => {
           anime({
             targets: '.description',
-            'margin-top': '0.5rem',
+            'margin-top': '0rem',
             duration: 1500,
             opacity: 1,
           })
@@ -55,6 +57,9 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+.hello {
+  z-index: 0;
+}
 .description {
   font-size: 2rem;
   margin-top: -2rem;

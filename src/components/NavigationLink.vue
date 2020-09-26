@@ -1,6 +1,6 @@
 <template>
     <div class="link" :class="{disabled: isCurrent }">
-        <i class="fas fa-camera"></i><router-link class="router-link" :to="to"><slot /></router-link>
+        <router-link class="router-link" :to="to"><font-awesome-icon v-if="icon" :icon="icon" class="fa-fw icon" /><slot /></router-link>
     </div>
 </template>
 <script>
@@ -9,12 +9,14 @@ import '@fortawesome/fontawesome-free/scss/fontawesome.scss'
 export default {
     props: {
         to: String,
+        icon: Array,
     },
-    mounted: () => {
+    mounted () {
         anime({
             targets: '.link',
             'margin-left': '5rem',
         })
+        console.log(this.icon)
     },
     computed: {
         isCurrent() { return this.$route.path === this.to}
@@ -23,11 +25,20 @@ export default {
 </script>
 <style scoped>
 .link {
-    font-size: 5rem;
+    font-size: 3rem;
     margin-left: -5rem;
+    margin-bottom: 2rem;
     font-weight: bold;
     text-decoration: none;
     color: black;
+    text-shadow: 1px 1px 3px grey;
+}
+.link:last-child {
+    margin-bottom: 0;
+}
+
+.icon {
+    margin-right: 1rem;
 }
 
 .router-link {
@@ -36,6 +47,6 @@ export default {
 }
 
 .disabled {
-    opacity: 0.5;
+    opacity: 0.2;
 }
 </style>
