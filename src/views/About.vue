@@ -1,21 +1,23 @@
 <template>
   <div class="about">
-    <div class="slides">
-      <div class="slide">
-        <p>九州工業大学情報工学部3年</p>
-      </div>
-      <div class="slide">
-        <p>Python / Javascript / Golang / RoR / Unity / Android</p>
-      </div>
-      <div class="slide">
-        <p>九工大サークル<a href='https://compositecomputer.club'>C3</a>所属</p>
-      </div>
-    </div>
+    <Card title="大学">
+      <p>九州工業大学情報工学部3年</p>
+    </Card>
+    <Card title="主に触ったことのある技術">
+      <p>Python / Javascript / Golang / RoR / Unity / Android</p>
+    </Card>
+    <Card title="所属">
+      <p>九工大サークル<a href='https://compositecomputer.club'>C3</a>所属</p>
+    </Card>
   </div>
 </template>
 <script>
 import anime from 'animejs/lib/anime.es'
+import Card from '@/components/About/Card.vue'
 export default {
+  components: {
+    Card,
+  },
   data: () => ({
     slides: [],
     nowSlideIndex: 0,
@@ -60,22 +62,10 @@ export default {
 }
 </script>
 <style scoped>
-.slides {
+.about {
   position: absolute;
   width: 100%;
   height: 100%;
   text-align: center;
-}
-.slide {
-  position: relative;
-  height: 100%;
-}
-.slide p {
-  position: absolute;
-  font-size: 2rem;
-  font-weight: bold;
-  width: 100%;
-  top: 50%;
-  transform: translateY(-50%);
 }
 </style>
