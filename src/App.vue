@@ -1,6 +1,7 @@
 <template>
   <div id="app">
-    <Navigation />
+    <NavigationButton :visible="!isNavOpen" @open="navOpen" />
+    <Navigation :visible="isNavOpen" @close="navClose" />
     <router-view/>
     <Footer />
   </div>
@@ -8,10 +9,23 @@
 <script>
 import Footer from './components/Footer'
 import Navigation from './components/Navigation'
+import NavigationButton from './components/NavigationButton'
 export default {
+  data: () => ({
+    isNavOpen: false,
+  }),
   components: {
     Footer,
     Navigation,
+    NavigationButton,
+  },
+  methods: {
+    navOpen() {
+      this.isNavOpen = true
+    },
+    navClose() {
+      this.isNavOpen = false
+    }
   }
 }
 </script>

@@ -1,103 +1,45 @@
 <template>
-    <div class="container">
-        <div class="navigation_bg" v-on:click="navClose" :class="{ visible: isNavOpen }">
-            <div class="navigation">
-                <NavigationLink v-if="isNavOpen" to="/" :icon="['fas', 'home']">Home</NavigationLink>
-                <NavigationLink v-if="isNavOpen" to="/about" :icon="['fas', 'info']">About</NavigationLink>
-            </div>
-        </div>
-        <div class="navigation_button">
-            <font-awesome-icon class="marker" v-on:click="navOpen" :icon="['fas', 'compass']" />
-
+    <div class="navigation_bg" v-on:click="navClose" :class="{ visible: visible }">
+        <div class="navigation">
+            <NavigationLink v-if="visible" to="/" :icon="['fas', 'home']">Home</NavigationLink>
+            <NavigationLink v-if="visible" to="/about" :icon="['fas', 'info']">About</NavigationLink>
         </div>
     </div>
 </template>
 <script>
 import NavigationLink from './NavigationLink'
-import anime from 'animejs/lib/anime.es'
+// import anime from 'animejs/lib/anime.es'
 export default {
     components: {
         NavigationLink
     },
-    data: () => ({
-        isNavOpen: false,
-    }),
-    mounted: () => {
-        anime({
-            targets: '.marker',
-            'margin-top': '3rem',
-        })
+    props: {
+        visible: Boolean
     },
     methods: {
-        navOpen() {
-            if(!this.isNavOpen) {
-                anime.remove('.navigation_bg, .navigation_button')
-                anime({
-                    targets: '.marker',
-                    'margin-top': '-3rem',
-                })
-                anime({
-                    targets: '.navigation_bg',
-                    opacity: 1,
-                    duration: 200,
-                    easing: 'easeInOutQuad'
-                })
-                anime({
-                    targets: '.navigation_button',
-                    opacity: 0,
-                })
-                this.isNavOpen = true
-            }
-        },
         navClose() {
-            if(this.isNavOpen) {
-                anime.remove('.navigation_bg, .navigation_button')
-                anime({
-                    targets: '.marker',
-                    'margin-top': '3rem',
-                })
-                anime({
-                    targets: '.navigation_bg',
-                    opacity: 0,
-                    easing: 'easeInOutQuad'
-                })
-                anime({
-                    targets: '.navigation_button',
-                    opacity: 1,
-                })
-                this.isNavOpen = false
-            }
+            this.$emit('close')
         }
     }
 
 }
 </script>
 <style scoped>
-.container {
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    z-index: 2000;
-}
-.marker {
-    cursor: pointer;
-    margin-top: -3rem;
-    font-size: 3rem;
-    text-shadow: 1px 1px 3px grey;
-}
-.visible {
-    display: block!important;
-}
 .navigation_bg {
-    position: absolute;
-    display: none;
+    position: fixed;
     background-color: #00000055;
+    display: none;
+    opacity: 0;
     width: 100%;
     height: 100%;
-    z-index: 2000;
-    opacity: 0;
     backdrop-filter: blur(10px);
     text-align: left;
+    z-index: 5000;
+    transition: 0.5s;
+}
+.visible {
+    display: block;
+    opacity: 1;
 }
 .navigation_button {
     margin-left: 50%;
