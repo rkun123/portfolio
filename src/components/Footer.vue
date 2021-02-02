@@ -1,6 +1,6 @@
 <template>
   <div class="footer">
-      <p>C3 2020 All rights reserved</p>
+      <p>© rkun 2021</p>
   </div>
 </template>
 

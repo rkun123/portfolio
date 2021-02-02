@@ -1,5 +1,5 @@
 <template>
-    <div class="link" :class="{disabled: isCurrent }">
+    <div class="link" :class="{disabled: !isCurrent }">
         <router-link class="router-link" :to="to"><font-awesome-icon v-if="icon" :icon="icon" class="fa-fw icon" /><slot /></router-link>
     </div>
 </template>
@@ -32,6 +32,7 @@ export default {
     text-decoration: none;
     color: black;
     text-shadow: 1px 1px 3px grey;
+    transition: opacity 0.2s;
 }
 .link:last-child {
     margin-bottom: 0;
@@ -48,5 +49,9 @@ export default {
 
 .disabled {
     opacity: 0.2;
+}
+
+.link:hover {
+    opacity: 1;
 }
 </style>

@@ -2,7 +2,7 @@
   <div id="app">
     <NavigationButton :visible="!isNavOpen" @open="navOpen" />
     <Navigation :visible="isNavOpen" @close="navClose" />
-    <router-view/>
+    <router-view />
     <Footer />
   </div>
 </template>

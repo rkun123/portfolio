@@ -3,8 +3,8 @@
     <Card title="大学">
       <p>九州工業大学情報工学部3年</p>
     </Card>
-    <Card title="主に触ったことのある技術">
-      <p>Python / Javascript / Golang / RoR / Unity / Android</p>
+    <Card title="技術">
+      <p>Python / Javascript / Golang / Ruby on Rails / Unity / Android</p>
     </Card>
     <Card title="所属">
       <p>九工大サークル<a href='https://compositecomputer.club'>C3</a>所属</p>
@@ -22,9 +22,12 @@ export default {
     slides: [],
     nowSlideIndex: 0,
     lastScrollTop: 0,
+    sliding: false
   }),
   methods: {
     scrollListener(e) {
+      if(this.sliding) return
+      this.sliding = true
       // Scroll down
       if(e.deltaY > 0 && this.nowSlideIndex < this.slides.length - 1) {
         this.nowSlideIndex++
@@ -37,7 +40,10 @@ export default {
         targets: 'html, body',
         scrollTop: this.slides[this.nowSlideIndex].top,
         duration: 600,
-        easing: 'easeOutCubic'
+        easing: 'easeOutCubic',
+        complete: () => {
+          this.sliding = false;
+        }
       })
     },
     scroll() {

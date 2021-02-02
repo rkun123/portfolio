@@ -1,6 +1,6 @@
 <template>
   <div class="hello">
-    <svg width="375" height="150" version="1.1" viewBox="0 0 210 80" xmlns="http://www.w3.org/2000/svg" xmlns:cc="http://creativecommons.org/ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+    <svg class="title" width="375" height="150" version="1.1" viewBox="0 0 210 80" xmlns="http://www.w3.org/2000/svg" xmlns:cc="http://creativecommons.org/ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
     <g fill="#000" fill-opacity="0" stroke="#000" stroke-width="0.6" style="font-feature-settings:normal;font-variant-caps:normal;font-variant-ligatures:normal;font-variant-numeric:normal" aria-label="rkun">
       <path d="m19.053 77.153h-13.512v-51.067h12.55v7.2609q3.2217-5.1451 5.7702-6.78 2.5966-1.6349 5.8664-1.6349 4.6162 0 8.8958 2.5485l-4.1834 11.781q-3.4141-2.2119-6.3473-2.2119-2.837 0-4.8085 1.5868-1.9715 1.5387-3.1256 5.626-1.106 4.0873-1.106 17.118z" style="font-feature-settings:normal;font-variant-caps:normal;font-variant-ligatures:normal;font-variant-numeric:normal"/>
       <path d="m43.913 77.153v-70.493h13.512v37.41l15.82-17.984h16.638l-17.455 18.657 18.705 32.41h-14.57l-12.839-22.937-6.2992 6.5877v16.349z" style="font-feature-settings:normal;font-variant-caps:normal;font-variant-ligatures:normal;font-variant-numeric:normal"/>
@@ -38,12 +38,15 @@ export default {
         complete: () => {
           anime({
             targets: '.description',
+            easing: 'easeInOutCirc',
             'margin-top': '0rem',
             duration: 1500,
             opacity: 1,
           })
           anime({
             targets: 'svg g path',
+            easing: 'easeInOutCirc',
+            delay: 2,
             duration: 1500,
             'fill-opacity': '1'
           })
@@ -60,11 +63,17 @@ export default {
 .hello {
   z-index: 0;
 }
+.title {
+  background-color: white;
+}
 .description {
   font-size: 2rem;
-  margin-top: -2rem;
+  margin-top: -2em;
   opacity: 0;
   color: #000000;
   font-weight: bold;
+}
+.description p {
+  margin-top: 0;
 }
 </style>
