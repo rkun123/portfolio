@@ -25,17 +25,23 @@ export default {
     sliding: false
   }),
   methods: {
-    scrollListener(e) {
-      if(this.sliding) return
-      this.sliding = true
-      // Scroll down
-      if(e.deltaY > 0 && this.nowSlideIndex < this.slides.length - 1) {
-        this.nowSlideIndex++
-      }
-      // Scroll up
-      if(e.deltaY < 0 && this.nowSlideIndex > 0) {
+    scrollUp() {
+      if(!this.sliding && this.nowSlideIndex > 0) {
+        console.debug('scroll up', this.nowSlideIndex)
+        this.sliding = true
         this.nowSlideIndex--
+        this.animate()
       }
+    },
+    scrollDown() {
+      if(!this.sliding && this.nowSlideIndex < this.slides.length-1) {
+        console.debug('scroll down', this.nowSlideIndex)
+        this.sliding = true
+        this.nowSlideIndex++
+        this.animate()
+      }
+    },
+    animate() {
       anime({
         targets: 'html, body',
         scrollTop: this.slides[this.nowSlideIndex].top,
@@ -46,11 +52,17 @@ export default {
         }
       })
     },
-    scroll() {
-
+    scrollListener(e) {
+      e.preventDefault()
+      if(e.deltaY < 0) {
+        // Scroll up
+        this.scrollUp()
+      } else if(e.deltaY > 0) {
+        // Scroll down
+        this.scrollDown()
+      }
     },
     getSlides() {
-      console.log(document.querySelectorAll('.slide'))
       const self = this
       document.querySelectorAll('.slide').forEach(n => {
         self.slides.push({
@@ -63,7 +75,7 @@ export default {
   mounted() {
     this.getSlides()
     // Scroll event listener
-    window.addEventListener('wheel', this.scrollListener)
+    window.addEventListener('wheel', this.scrollListener, {passive: false})
   },
 }
 </script>
