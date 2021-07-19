@@ -12,10 +12,11 @@
 				<div class="overflow-filter">
 				</div>
 				<p v-html="formattedDescription">></p>
-				<div class="detail-button">
-					<font-awesome-icon :icon="['fas', 'info-square']" class="fa-fw icon" />
-					For detail
-				</div>
+			</div>
+			<div class="detail-button">
+				<a :href="detailLink">
+					<font-awesome-icon :icon="['fas', 'external-link-alt']" class="fa-fw icon" />
+				</a>
 			</div>
 		</div>
 	</div>
@@ -51,6 +52,9 @@ export default {
 			console.debug(this.news.description)
 			console.debug(formatDescription(this.news.description))
 			return formatDescription(this.news.description)
+		},
+		detailLink() {
+			return `/works/${this.news.id}`
 		}
 	}
 }
@@ -68,12 +72,13 @@ export default {
 .timestamp {
 }
 .cover {
-	max-width: 50%;
+	max-width: 100%;
+	max-height: 50em;
 }
 .text {
 	position: relative;
 	width: 100%;
-	height: 10em;
+	max-height: 10em;
 	font-size: 1rem;
 	overflow: hidden;
 }

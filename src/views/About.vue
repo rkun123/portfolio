@@ -77,6 +77,10 @@ export default {
     // Scroll event listener
     window.addEventListener('wheel', this.scrollListener, {passive: false})
   },
+  beforeDestroy() {
+    console.debug('unmount')
+    window.removeEventListener('wheel', this.scrollListener)
+  }
 }
 </script>
 <style scoped>

@@ -59,13 +59,14 @@ export default {
 </script>
 <style scoped>
 .container {
-	margin: 0 0 2rem 0;
+	padding-top: 10rem;
 }
 .header {
 	margin-bottom: 2rem;
 }
 .title {
 	margin-bottom: .5rem;
+	margin-block-start: 0;
 }
 .timestamp {
 }
@@ -78,25 +79,6 @@ export default {
 	height: 10em;
 	font-size: 1rem;
 	overflow: hidden;
+	margin: 2rem 0;
 }
-.text p {
-	margin: 0;
-	padding: 0;
-	overflow: hidden;
-}
-.text .overflow-filter {
-	position: absolute;
-	bottom: 0;
-	width: 100%;
-	height: 5rem;
-	background: linear-gradient(to bottom, #00000000, #ffffff);
-}
-.text .detail-button {
-	position: absolute;
-	width: 100%;
-	font-size: 1.2rem;
-	font-weight: bold;
-	bottom: 0;
-}
-
 </style>

@@ -35,6 +35,5 @@ export default {
 }
 .news {
 	padding: 3rem 0;
-	border-bottom: solid 1px black;
 }
 </style>
