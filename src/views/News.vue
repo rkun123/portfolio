@@ -71,7 +71,8 @@ export default {
 .timestamp {
 }
 .cover {
-	max-width: 50%;
+	max-width: 90vw;
+	max-height: 50rem;
 }
 .text {
 	position: relative;
