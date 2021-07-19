@@ -1,8 +1,6 @@
-import path from 'path'
-
 export default async function api(endpointPath) {
-	console.debug(process.env)
-	const res = await fetch(`${path.join(process.env.VUE_APP_BASE, endpointPath)}`, {
+	const _endpointPath = endpointPath.startsWith('/') ? endpointPath : '/'+endpointPath
+	const res = await fetch(`${process.env.VUE_APP_BASE+_endpointPath}`, {
 		headers: {
 			'X-API-KEY': process.env.VUE_APP_KEY
 		}
