@@ -76,9 +76,7 @@ export default {
 .text {
 	position: relative;
 	width: 100%;
-	height: 10em;
 	font-size: 1rem;
-	overflow: hidden;
 	margin: 2rem 0;
 }
 </style>
