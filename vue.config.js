@@ -2,7 +2,9 @@ module.exports = {
     css: {
         loaderOptions: {
             scss: {
-                additionalData: "@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;700&display=swap');"
+                additionalData: "@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;700&display=swap');@import url('~@/global.scss');"
+            },
+            css: {
             }
         }
     }

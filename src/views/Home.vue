@@ -1,6 +1,9 @@
 <template>
   <div class="home">
-    <HelloWorld class="helloWorld" msg="Welcome to My Portfolio"/>
+    <div class="hello-container">
+      <HelloWorld class="helloWorld" msg="Welcome to My Portfolio"/>
+    </div>
+    <news-list />
   </div>
 </template>
 
@@ -8,11 +11,13 @@
 // @ is an alias to /src
 import anime from 'animejs/lib/anime.es'
 import HelloWorld from '@/components/HelloWorld.vue'
+import NewsList from '../components/News/NewsList.vue'
 
 export default {
   name: 'Home',
   components: {
-    HelloWorld
+    HelloWorld,
+    NewsList
   },
   mounted: () => {
     anime({
@@ -27,6 +32,9 @@ export default {
 <style scoped>
 .home {
   height: 100%;
+}
+.hello-container {
+  height: 100vh;
 }
 .helloWorld {
   position: absolute;
