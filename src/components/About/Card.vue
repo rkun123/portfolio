@@ -1,32 +1,38 @@
 <template>
     <div class="slide">
         <div>
-            <h1>{{ title }}</h1>
             <div>
+                <font-awesome-icon class="icon" :icon="icon" />
                 <slot></slot>
             </div>
         </div>
     </div>
 </template>
 <script>
+import '@fortawesome/fontawesome-free/scss/fontawesome.scss'
+
 export default {
     props: {
-        title: String,
+        icon: String,
     }
 }
 </script>
 <style scoped>
 .slide {
     position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     height: 100%;
 }
 .slide div {
-    position: absolute;
     font-size: 2rem;
     font-weight: bold;
-    width: 100%;
-    top: 50%;
-    transform: translateY(-50%);
+}
+.icon {
+    font-size: 5rem;
+    margin-bottom: 1rem;
 }
 .slide div * {
     position: relative;

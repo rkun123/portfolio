@@ -1,12 +1,12 @@
 <template>
   <div class="about">
-    <Card title="大学">
-      <p>九州工業大学情報工学部3年</p>
+    <Card icon="university">
+      <p>九州工業大学情報工学部4年</p>
     </Card>
-    <Card title="技術">
+    <Card icon="keyboard">
       <p>Python / Javascript / Golang / Ruby on Rails / Unity / Android</p>
     </Card>
-    <Card title="所属">
+    <Card icon="info-circle">
       <p>九工大サークル<a href='https://compositecomputer.club'>C3</a>所属</p>
     </Card>
   </div>
