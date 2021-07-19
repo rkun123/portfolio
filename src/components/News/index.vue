@@ -54,7 +54,7 @@ export default {
 			return formatDescription(this.news.description)
 		},
 		detailLink() {
-			return `/works/${this.news.id}`
+			return `/news/${this.news.id}`
 		}
 	}
 }
