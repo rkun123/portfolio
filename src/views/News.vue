@@ -9,7 +9,7 @@
 				<img class="cover" :src="news.cover.url" >
 			</div>
 			<div class="text">
-				<p v-html="formattedDescription"></p>
+				<p v-html="news.description">></p>
 			</div>
 		</div>
 	</div>

@@ -11,7 +11,7 @@
 			<div class="text">
 				<div class="overflow-filter">
 				</div>
-				<p v-html="formattedDescription">></p>
+				<p v-html="news.description">></p>
 			</div>
 			<div class="detail-button">
 				<a :href="detailLink">
